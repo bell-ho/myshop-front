@@ -1,21 +1,23 @@
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useRef } from 'react';
-import { Hydrate, QueryClientProvider } from 'react-query';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { queryClient } from '@/react-query/queryClient';
+import type { AppProps } from 'next/app';
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
+import GlobalStyle from '@/components/GlobalStyle';
 
-const MyShop = ({ Component, pageProps }) => {
-  const queryClientRef = useRef();
+const MyShop = ({ Component, pageProps }: AppProps<{ dehydratedState: unknown }>) => {
+  const queryClientRef = useRef<QueryClient>();
   if (!queryClientRef.current) {
     queryClientRef.current = queryClient;
   }
   return (
     <QueryClientProvider client={queryClientRef.current}>
+      <GlobalStyle />
       <Hydrate state={pageProps.dehydratedState}>
         <Head>
           <meta charSet="utf-8" />
-          <title>MyShop</title>
+          <title>Hello</title>
         </Head>
         <Component {...pageProps} />
         <ReactQueryDevtools />
@@ -23,23 +25,5 @@ const MyShop = ({ Component, pageProps }) => {
     </QueryClientProvider>
   );
 };
-
-MyShop.propTypes = {
-  Component: PropTypes.element.isRequired,
-};
-
-// MyShop.getInitialProps = async ({ Component, ctx }) => {
-//   let pageProps = {};
-//
-//   if (Component.getInitialProps) {
-//     pageProps = await Component.getInitialProps(ctx);
-//   }
-//
-//   return { pageProps };
-// };
-
-export function reportWebVitals(metric) {
-  console.log(metric);
-}
 
 export default MyShop;
