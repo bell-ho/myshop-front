@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Input, { type Props as InputProps } from '@/components/input';
+import Input, { type Props as InputProps } from '@/components/Input';
 import { colors } from '@/lib/colors';
 
 interface Props extends InputProps {

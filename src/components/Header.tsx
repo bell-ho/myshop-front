@@ -18,7 +18,7 @@ const Header = ({ title = 'Hello', headerLeft, headerRight }: Props) => {
   );
 };
 
-const Block = styled.header`
+const Block = styled.div`
   position: relative;
   height: 56px;
   border-bottom: 1px solid ${colors.gray0};
