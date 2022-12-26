@@ -7,6 +7,8 @@ import useInputs from '@/hooks/useInputs';
 import { useMutation, useQuery } from 'react-query';
 import { axios } from '@/utils/axios';
 import { Box } from '@mui/material';
+import { useRouter } from 'next/router';
+
 interface Props {
   mode: 'login' | 'register';
 }
@@ -36,6 +38,7 @@ const authDescription = {
 };
 
 const AuthForm = ({ mode }: Props) => {
+  const router = useRouter();
   const { usernamePlaceholder, passwordPlaceholder, buttonText, actionText, question, actionLink } =
     authDescription[mode];
 
@@ -51,8 +54,12 @@ const AuthForm = ({ mode }: Props) => {
         : axios.post(`/api/v1/auth/signin`, params),
     {
       onSuccess: (data) => {
-        console.log(data?.data?.token);
         localStorage.setItem('ACCESS_TOKEN', data?.data?.token);
+        if (mode === 'register') {
+          router.push('/login');
+          return;
+        }
+        router.push('/');
       },
     },
   );
