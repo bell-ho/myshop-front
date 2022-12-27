@@ -1,18 +1,5 @@
-import Header from '@/components/base/Header';
-import Footer from '@/components/base/Footer';
-import FullHeightPage from '@/components/system/FullHeightPage';
-import styled from 'styled-components';
+import TabLayout from '@/components/templates/TabLayout';
 
 export default function Home() {
-  return (
-    <FullHeightPage>
-      <Header />
-      <Content />
-      <Footer />
-    </FullHeightPage>
-  );
+  return <TabLayout />;
 }
-
-const Content = styled.div`
-  flex: 1;
-`;

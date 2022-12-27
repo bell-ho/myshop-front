@@ -1,7 +1,8 @@
 import React from 'react';
+import TabLayout from '@/components/templates/TabLayout';
 
 const Bookmarks = () => {
-  return <div>hi book</div>;
+  return <TabLayout />;
 };
 
 export default Bookmarks;

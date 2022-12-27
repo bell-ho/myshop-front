@@ -1,8 +1,8 @@
 import React from 'react';
 import TabLayout from '@/components/templates/TabLayout';
 
-const Search = () => {
-  return <TabLayout />;
+const Setting = () => {
+  return <TabLayout>Setting</TabLayout>;
 };
 
-export default Search;
+export default Setting;
