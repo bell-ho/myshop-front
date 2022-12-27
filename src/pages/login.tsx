@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '@/components/Header';
-import HeaderBackBtn from '@/components/HeaderBackBtn';
+import Header from '@/components/base/Header';
+import HeaderBackBtn from '@/components/base/HeaderBackBtn';
 import { useGoBack } from '@/hooks/useGoBack';
-import AuthForm from '@/components/AuthForm';
-import FullHeightPage from '@/components/FullHeightPage';
+import AuthForm from '@/components/auth/AuthForm';
+import FullHeightPage from '@/components/system/FullHeightPage';
 
 const Login = () => {
   const goBack = useGoBack();

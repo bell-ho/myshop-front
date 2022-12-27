@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import LabelInput from '@/components/LabelInput';
-import Button from '@/components/Button';
-import QuestionLink from '@/components/QuestionLink';
+import LabelInput from '@/components/system/LabelInput';
+import Button from '@/components/system/Button';
+import QuestionLink from '@/components/auth/QuestionLink';
 import useInputs from '@/hooks/useInputs';
 import { useMutation, useQuery } from 'react-query';
 import { axios } from '@/utils/axios';
@@ -102,7 +102,6 @@ const Block = styled.div`
   padding: 16px;
   flex: 1;
   justify-content: space-between;
-  gap: 24px;
 `;
 
 const InputGroup = styled.div`

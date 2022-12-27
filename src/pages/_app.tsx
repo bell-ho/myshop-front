@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { queryClient } from '@/react-query/queryClient';
 import type { AppProps } from 'next/app';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
-import GlobalStyle from '@/components/GlobalStyle';
+import GlobalStyle from '@/GlobalStyle';
 
 const MyShop = ({ Component, pageProps }: AppProps<{ dehydratedState: unknown }>) => {
   const queryClientRef = useRef<QueryClient>();
@@ -20,7 +20,7 @@ const MyShop = ({ Component, pageProps }: AppProps<{ dehydratedState: unknown }>
           <title>Hello</title>
         </Head>
         <Component {...pageProps} />
-        <ReactQueryDevtools />
+        <ReactQueryDevtools position={'top-right'} />
       </Hydrate>
     </QueryClientProvider>
   );
